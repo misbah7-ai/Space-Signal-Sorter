@@ -1,0 +1,19 @@
+# environments & caches
+venv/
+.venv/
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+
+# OS / editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ============================================================
+# models/ and data/ are tracked ON PURPOSE — the app loads
+# models/*.joblib and data/*.csv at runtime; excluding them
+# would deploy an app that dies on its first file read.
+# Do NOT add rules for *.joblib, models/ or data/.
+# ============================================================

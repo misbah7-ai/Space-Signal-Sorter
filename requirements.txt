@@ -1,0 +1,12 @@
+# Deployment requirements — Streamlit Community Cloud, Python 3.12.
+# EXACT pins on purpose: the app unpickles a model fitted under scikit-learn
+# 1.9.0, and loading it into a different version risks warnings at best and
+# changed behaviour at worst. No requests / API clients — there is no live feed
+# (pulsar discoveries aren't a daily event and survey pipelines are closed).
+streamlit==1.59.2
+scikit-learn==1.9.0
+pandas==3.0.3
+numpy==2.5.0
+joblib==1.5.3          # the app calls joblib.load directly — a first-class dependency
+altair==6.2.2          # the app imports altair for its charts (ships with streamlit; pinned anyway)
+# scipy arrives as a scikit-learn dependency; the generator uses scipy.stats.norm
